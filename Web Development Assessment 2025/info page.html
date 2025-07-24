@@ -10,12 +10,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="landing.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <title>1.2 base</title>
 </head>
 
 <body>
-  
+
   <div class="infopage">
     <div class="info-content">
       <div class="infoinner">
@@ -24,7 +24,7 @@
       </div>
     </div>
     <p class="info-subheading">Main Assets:</p>
-
+    <!-- adds images to the gallery with description -->
     <div class="gallery">
       <div class="gallery-content">
         <div class="slide-show-container">
@@ -69,10 +69,10 @@
             </div>
           </div>
           <div class="mySlides fade">
-            <img src="Chairlift2.jpg" alt="Image 6">
+            <img src="lowshotofglassjars.jpg" alt="Image 6">
             <div class="image-info">
               <span class="numberText">6/6</span>
-              <span class="Caption">Image 6 Description</span>
+              <span class="Caption">Jail Break</span>
               <span class="productionDate">1976/8/30</span>
             </div>
           </div>
@@ -92,6 +92,7 @@
     </div>
   </div>
 
+  <!-- adds menu bar for users to go to other pages -->
   <div class="menu-corner" id="menuButton">
     <div class="menu__icon">
       <span></span>
@@ -112,11 +113,11 @@
   <div class="nav-overlay" id="navOverlay"></div>
 
 
-   <div class="LoadingScreen">
+  <div class="LoadingScreen">
     <div class="loading-content">
       <div class="loading-content-inner">Redirecting to our Landing page.</div>
     </div>
-    </div>
+  </div>
 
 
 
@@ -124,223 +125,223 @@
 
 
 
-    <script>
-      function wrapLetters(selector, delayIncrement = 0.3) {
-        const el = document.querySelector(selector);
-        if (!el) return;
-        const text = el.textContent;
-        el.innerHTML = '';
-        [...text].forEach((char, index) => {
-          const span = document.createElement('span');
-          span.textContent = char;
-          if (char === ' ') {
-            span.classList.add('space');
-          }
-          const floatDelay = (index * delayIncrement).toFixed(2);
-          span.style.animation = `flicker 3s infinite ease-in-out 0s, floatSingle 4.5s infinite cubic-bezier(0.4, 0, 0.2, 1) ${floatDelay}s`;
-          el.appendChild(span);
-        });
-      }
-
-
-      wrapLetters('.landing-content-inner');
-      wrapLetters('.landing-content-sub');
-
-
-
-      // Add this to each page's script section, before the loading screen handler
-      const currentPage = window.location.pathname.split('/').pop();
-      const loadingScreen = document.querySelector('.LoadingScreen');
-      const loadingContent = document.querySelector('.loading-content-inner');
-
-      // Only show loading screen for actual page transitions
-      if (document.referrer === '' || !document.referrer.includes(currentPage)) {
-        loadingScreen.style.display = 'flex';
-      } else {
-        loadingScreen.style.display = 'none';
-      }
-
-      // Loading screen handler
-      window.addEventListener('load', () => {
-        if (loadingScreen.style.display === 'flex') {
-          setTimeout(() => {
-            loadingScreen.style.opacity = '0';
-            setTimeout(() => {
-              loadingScreen.style.display = 'none';
-            }, 1000);
-          }, 1000);
+  <script>
+    function wrapLetters(selector, delayIncrement = 0.3) {
+      const el = document.querySelector(selector);
+      if (!el) return;
+      const text = el.textContent;
+      el.innerHTML = '';
+      [...text].forEach((char, index) => {
+        const span = document.createElement('span');
+        span.textContent = char;
+        if (char === ' ') {
+          span.classList.add('space');
         }
+        const floatDelay = (index * delayIncrement).toFixed(2);
+        span.style.animation = `flicker 3s infinite ease-in-out 0s, floatSingle 4.5s infinite cubic-bezier(0.4, 0, 0.2, 1) ${floatDelay}s`;
+        el.appendChild(span);
       });
+    }
 
-      // Fallback in case load event doesn't fire
-      setTimeout(() => {
-        if (loadingScreen.style.display === 'flex') {
+
+    wrapLetters('.landing-content-inner');
+    wrapLetters('.landing-content-sub');
+
+
+
+
+    const currentPage = window.location.pathname.split('/').pop();
+    const loadingScreen = document.querySelector('.LoadingScreen');
+    const loadingContent = document.querySelector('.loading-content-inner');
+
+
+    if (document.referrer === '' || !document.referrer.includes(currentPage)) {
+      loadingScreen.style.display = 'flex';
+    } else {
+      loadingScreen.style.display = 'none';
+    }
+
+    // Loading screen 
+    window.addEventListener('load', () => {
+      if (loadingScreen.style.display === 'flex') {
+        setTimeout(() => {
           loadingScreen.style.opacity = '0';
           setTimeout(() => {
             loadingScreen.style.display = 'none';
           }, 1000);
-        }
-      }, 5000);
-
-      // Add to each page's script section
-      function isCurrentPage(href) {
-        return window.location.pathname.endsWith(href);
+        }, 1000);
       }
-
-    </script>
-
+    });
 
 
-
-
-    <!-- Add this just before </body> -->
-    <canvas id="bg-canvas"></canvas>
-    <script>
-      const canvas = document.getElementById('bg-canvas');
-      const ctx = canvas.getContext('2d');
-      function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        updateRedLight();
+    setTimeout(() => {
+      if (loadingScreen.style.display === 'flex') {
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+        }, 1000);
       }
-      window.addEventListener('resize', resize);
+    }, 5000);
 
-      // Fog particles
-      const fogs = [];
-      for (let i = 0; i < 20; i++) {
-        fogs.push({
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight,
-          r: 100 + Math.random() * 150,
-          alpha: 0.05 + Math.random() * 0.07,
-          dx: 0.1 + Math.random() * 0.3,
-          dy: -0.05 + Math.random() * 0.1
-        });
-      }
 
-      // Red light properties
-      const redLight = {
-        x: window.innerWidth * 0.8,
-        y: window.innerHeight * 0.2,
-        radius: 90
-      };
+    function isCurrentPage(href) {
+      return window.location.pathname.endsWith(href);
+    }
 
-      function updateRedLight() {
-        redLight.x = canvas.width * 0.8;
-        redLight.y = canvas.height * 0.2;
-      }
+  </script>
 
-      // Flashing effect
-      let time = 0;
-      function drawRedLight() {
-        // Sine wave for smooth flashing
-        const pulse = (Math.sin(time) + 1) / 2; // 0 to 1
-        const flickerAlpha = 0.18 + pulse * 0.32; // Range: 0.18 (dim) to 0.50 (bright)
-        const flickerRadius = redLight.radius + (Math.random() - 0.5) * 6;
 
-        // Bloom effect with pulsing alpha
-        for (let i = 3; i >= 1; i--) {
-          const bloomRadius = flickerRadius * (1 + i * 0.25);
-          const bloomAlpha = flickerAlpha * (0.18 * i);
-          const grad = ctx.createRadialGradient(
-            redLight.x, redLight.y, bloomRadius * 0.2,
-            redLight.x, redLight.y, bloomRadius
-          );
-          grad.addColorStop(0, `rgba(255,51,51,${bloomAlpha})`);
-          grad.addColorStop(1, 'rgba(255,51,51,0)');
 
-          ctx.save();
-          ctx.globalAlpha = 1;
-          ctx.beginPath();
-          ctx.arc(redLight.x, redLight.y, bloomRadius, 0, Math.PI * 2);
-          ctx.fillStyle = grad;
-          ctx.fill();
-          ctx.restore();
-        }
-      }
 
-      function drawFog() {
-        for (let fog of fogs) {
-          ctx.save();
-          ctx.globalAlpha = fog.alpha;
-          const grad = ctx.createRadialGradient(fog.x, fog.y, fog.r * 0.2, fog.x, fog.y, fog.r);
-          grad.addColorStop(0, '#fff');
-          grad.addColorStop(1, 'rgba(50,50,50,0)');
-          ctx.fillStyle = grad;
-          ctx.beginPath();
-          ctx.arc(fog.x, fog.y, fog.r, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.restore();
 
-          fog.x += fog.dx;
-          fog.y += fog.dy;
-          if (fog.x - fog.r > canvas.width) fog.x = -fog.r;
-          if (fog.y - fog.r > canvas.height) fog.y = -fog.r;
-        }
-      }
 
-      function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawFog();
-        drawRedLight();
-        time += 0.04;
-        requestAnimationFrame(animate);
-      }
+  <canvas id="bg-canvas"></canvas>
+  <script>
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      updateRedLight();
+    }
+    window.addEventListener('resize', resize);
 
-      // Initial setup
-      resize();
-      animate();
-    </script>
-
-    <script>
-      const menuButton = document.getElementById('menuButton');
-      const sideNav = document.getElementById('sideNav');
-      const navOverlay = document.getElementById('navOverlay');
-
-      menuButton.addEventListener('click', () => {
-        sideNav.classList.add('open');
-        navOverlay.classList.add('active');
+    // Fog particles
+    const fogs = [];
+    for (let i = 0; i < 20; i++) {
+      fogs.push({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        r: 100 + Math.random() * 150,
+        alpha: 0.05 + Math.random() * 0.07,
+        dx: 0.1 + Math.random() * 0.3,
+        dy: -0.05 + Math.random() * 0.1
       });
+    }
 
-      navOverlay.addEventListener('click', () => {
-        sideNav.classList.remove('open');
-        navOverlay.classList.remove('active');
-      });
-    </script>
+    // Red light 
+    const redLight = {
+      x: window.innerWidth * 0.8,
+      y: window.innerHeight * 0.2,
+      radius: 90
+    };
 
-    <script>
-let slideIndex = 1;
-showSlides(slideIndex);
+    function updateRedLight() {
+      redLight.x = canvas.width * 0.8;
+      redLight.y = canvas.height * 0.2;
+    }
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
+    // Flashing effect
+    let time = 0;
+    function drawRedLight() {
+      // Pulsing effect
+      const pulse = (Math.sin(time) + 1) / 2; // 0 to 1
+      const flickerAlpha = 0.18 + pulse * 0.32; // Range: 0.18 (dim) to 0.50 (bright)
+      const flickerRadius = redLight.radius + (Math.random() - 0.5) * 6;
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
+      // Bloom effect
+      for (let i = 3; i >= 1; i--) {
+        const bloomRadius = flickerRadius * (1 + i * 0.25);
+        const bloomAlpha = flickerAlpha * (0.18 * i);
+        const grad = ctx.createRadialGradient(
+          redLight.x, redLight.y, bloomRadius * 0.2,
+          redLight.x, redLight.y, bloomRadius
+        );
+        grad.addColorStop(0, `rgba(255,51,51,${bloomAlpha})`);
+        grad.addColorStop(1, 'rgba(255,51,51,0)');
 
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (slides.length === 0) return; // Prevent error if no slides
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-    slides[i].style.opacity = "0";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(() => {
-    slides[slideIndex-1].style.opacity = "1";
-  }, 10);
-  if (dots[slideIndex-1]) dots[slideIndex-1].className += " active";
-}
-</script>
+        ctx.save();
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.arc(redLight.x, redLight.y, bloomRadius, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function drawFog() {
+      for (let fog of fogs) {
+        ctx.save();
+        ctx.globalAlpha = fog.alpha;
+        const grad = ctx.createRadialGradient(fog.x, fog.y, fog.r * 0.2, fog.x, fog.y, fog.r);
+        grad.addColorStop(0, '#fff');
+        grad.addColorStop(1, 'rgba(50,50,50,0)');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(fog.x, fog.y, fog.r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+
+        fog.x += fog.dx;
+        fog.y += fog.dy;
+        if (fog.x - fog.r > canvas.width) fog.x = -fog.r;
+        if (fog.y - fog.r > canvas.height) fog.y = -fog.r;
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawFog();
+      drawRedLight();
+      time += 0.04;
+      requestAnimationFrame(animate);
+    }
+
+    //  setup
+    resize();
+    animate();
+  </script>
+
+  <script>
+    const menuButton = document.getElementById('menuButton');
+    const sideNav = document.getElementById('sideNav');
+    const navOverlay = document.getElementById('navOverlay');
+
+    menuButton.addEventListener('click', () => {
+      sideNav.classList.add('open');
+      navOverlay.classList.add('active');
+    });
+
+    navOverlay.addEventListener('click', () => {
+      sideNav.classList.remove('open');
+      navOverlay.classList.remove('active');
+    });
+  </script>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (slides.length === 0) return; // make sure there are slides to show
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        slides[i].style.opacity = "0";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(() => {
+        slides[slideIndex - 1].style.opacity = "1";
+      }, 10);
+      if (dots[slideIndex - 1]) dots[slideIndex - 1].className += " active";
+    }
+  </script>
 
 
 

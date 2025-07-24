@@ -21,7 +21,7 @@
       <div class="loading-content-inner">Redirecting to our Pricing page.</div>
     </div>
   </div>
-
+  <!-- adds menu bar for users to go to other pages -->
   <div class="menu-corner">
     <div class="background" id="menuButton">
       <div class="menu__icon">
@@ -97,29 +97,29 @@
         });
       }
 
-      // Update these selectors for each page
-      wrapLetters('.pricing-content-inner'); // For pricing.html
+
+      wrapLetters('.pricing-content-inner');
       wrapLetters('.pricing-content-sub');
-      wrapLetters('.pricing-intro'); // For pricing.html  
-      wrapLetters('.pricing-section h2'); // For pricing.html
-      wrapLetters('.pricing-card h3'); // For pricing.html
-      wrapLetters('.pricing-card p'); // For pricing.html
-      wrapLetters('.plan'); // For pricing.html
+      wrapLetters('.pricing-intro');
+      wrapLetters('.pricing-section h2');
+      wrapLetters('.pricing-card h3');
+      wrapLetters('.pricing-card p');
+      wrapLetters('.plan');
 
 
-      // Add to each page's script section
+
       const currentPage = window.location.pathname.split('/').pop();
       const loadingScreen = document.querySelector('.LoadingScreen');
       const loadingContent = document.querySelector('.loading-content-inner');
 
-      // Only show loading screen for actual page transitions
+
       if (document.referrer === '' || !document.referrer.includes(currentPage)) {
         loadingScreen.style.display = 'flex';
       } else {
         loadingScreen.style.display = 'none';
       }
 
-      // Loading screen handler
+      // Loading screen 
       window.addEventListener('load', () => {
         if (loadingScreen.style.display === 'flex') {
           setTimeout(() => {
@@ -131,7 +131,7 @@
         }
       });
 
-      // Fallback in case load event doesn't fire
+
       setTimeout(() => {
         if (loadingScreen.style.display === 'flex') {
           loadingScreen.style.opacity = '0';
@@ -141,7 +141,7 @@
         }
       }, 5000);
 
-      // Add to each page's script section
+
       function isCurrentPage(href) {
         return window.location.pathname.endsWith(href);
       }
@@ -171,7 +171,7 @@
         });
       }
 
-      // Red light properties
+      // Red light 
       const redLight = {
         x: window.innerWidth * 0.8,
         y: window.innerHeight * 0.2,
@@ -186,12 +186,12 @@
       // Flashing effect
       let time = 0;
       function drawRedLight() {
-        // Sine wave for smooth flashing
+        // Pulsing effect
         const pulse = (Math.sin(time) + 1) / 2; // 0 to 1
         const flickerAlpha = 0.18 + pulse * 0.32; // Range: 0.18 (dim) to 0.50 (bright)
         const flickerRadius = redLight.radius + (Math.random() - 0.5) * 6;
 
-        // Bloom effect with pulsing alpha
+        // Bloom effect 
         for (let i = 3; i >= 1; i--) {
           const bloomRadius = flickerRadius * (1 + i * 0.25);
           const bloomAlpha = flickerAlpha * (0.18 * i);
@@ -240,7 +240,7 @@
         requestAnimationFrame(animate);
       }
 
-      // Initial setup
+      //  setup
       resize();
       animate();
     </script>

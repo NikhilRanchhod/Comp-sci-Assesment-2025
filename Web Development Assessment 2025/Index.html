@@ -13,7 +13,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <!-- Font Awesome CDN in your <head> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -40,7 +39,7 @@
   </div>
   </div>
 
-  <!-- Sidebar menu in your body -->
+  <!-- adds menu bar for users to go to other pages -->
   <div class="menu-corner">
     <div class="background" id="menuButton">
       <div class="menu__icon">
@@ -61,7 +60,7 @@
     </ul>
   </nav>
   <div class="nav-overlay" id="navOverlay"></div>
-    
+
   <script>
     function wrapLetters(selector, delayIncrement = 0.3) {
       const el = document.querySelector(selector);
@@ -86,19 +85,19 @@
 
 
 
-    // Add this to each page's script section, before the loading screen handler
+
     const currentPage = window.location.pathname.split('/').pop();
     const loadingScreen = document.querySelector('.LoadingScreen');
     const loadingContent = document.querySelector('.loading-content-inner');
 
-    // Only show loading screen for actual page transitions
+
     if (document.referrer === '' || !document.referrer.includes(currentPage)) {
       loadingScreen.style.display = 'flex';
     } else {
       loadingScreen.style.display = 'none';
     }
 
-    // Loading screen handler
+    // Loading screen 
     window.addEventListener('load', () => {
       if (loadingScreen.style.display === 'flex') {
         setTimeout(() => {
@@ -110,7 +109,7 @@
       }
     });
 
-    // Fallback in case load event doesn't fire
+
     setTimeout(() => {
       if (loadingScreen.style.display === 'flex') {
         loadingScreen.style.opacity = '0';
@@ -120,27 +119,27 @@
       }
     }, 5000);
 
-    // Add to each page's script section
+
     function isCurrentPage(href) {
       return window.location.pathname.endsWith(href);
     }
 
   </script>
   <script>
-const menuButton = document.getElementById('menuButton');
-const sideNav = document.getElementById('sideNav');
-const navOverlay = document.getElementById('navOverlay');
+    const menuButton = document.getElementById('menuButton');
+    const sideNav = document.getElementById('sideNav');
+    const navOverlay = document.getElementById('navOverlay');
 
-menuButton.addEventListener('click', () => {
-  sideNav.classList.add('open');
-  navOverlay.classList.add('active');
-});
+    menuButton.addEventListener('click', () => {
+      sideNav.classList.add('open');
+      navOverlay.classList.add('active');
+    });
 
-navOverlay.addEventListener('click', () => {
-  sideNav.classList.remove('open');
-  navOverlay.classList.remove('active');
-});
-</script>
+    navOverlay.addEventListener('click', () => {
+      sideNav.classList.remove('open');
+      navOverlay.classList.remove('active');
+    });
+  </script>
 
 </body>
 

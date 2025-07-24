@@ -9,14 +9,13 @@ html {
   overflow-y: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  /* IE and Edge */
 }
 
 html::-webkit-scrollbar {
   display: none;
 }
 
-
+/*when going to different pages there is a loading screen*/
 .LoadingScreen {
   position: fixed;
   top: 0;
@@ -32,6 +31,7 @@ html::-webkit-scrollbar {
   color: #A6886D;
 }
 
+/*the is a main page */
 .landing {
   background-image: url('hallwayshot.jpg');
   background-size: cover;
@@ -54,11 +54,10 @@ html::-webkit-scrollbar {
   animation: flicker 2.5s infinite alternate;
   z-index: 2;
   letter-spacing: 0.1em;
-  /* Added for better spacing */
 }
 
 
-
+/*page for our trailer video*/
 .trailer {
   min-height: 100vh;
   background-size: 200% 200%;
@@ -176,6 +175,8 @@ html::-webkit-scrollbar {
 .pricing::before,
 .aboutus::before,
 .trailer::before,
+
+/*makes the background have animation*/
 .infopage::before {
   content: "";
   position: absolute;
@@ -227,6 +228,7 @@ html::-webkit-scrollbar {
   pointer-events: none;
 }
 
+/*gradient for the background*/
 @keyframes gradientFlow {
   0% {
     background-position: 0% 0%, 100% 100%, 50% 50%;
@@ -249,6 +251,7 @@ html::-webkit-scrollbar {
   }
 }
 
+/*Small keyframes effects added to my pages*/
 @keyframes pulseGlow {
 
   0%,
@@ -280,6 +283,7 @@ html::-webkit-scrollbar {
   pointer-events: none;
 }
 
+/*makes the text move up and down*/
 @keyframes creepyMove {
   0% {
     background-position: 0% 0%;
@@ -345,7 +349,6 @@ html::-webkit-scrollbar {
   text-align: center;
   font-family: 'Cinzel', serif;
   padding-top: 120px;
-  /* Increased padding to avoid navbar overlap */
 }
 
 .aboutus-content {
@@ -367,11 +370,9 @@ html::-webkit-scrollbar {
   text-align: center;
   font-family: 'Cinzel', serif;
   font-size: 3.5vw;
-  /* Reduced from 5vw */
   margin-top: 2rem;
   margin-bottom: 2rem;
   letter-spacing: 0.2em;
-  /* Reduced from 0.3em */
   text-shadow:
     0 0 10px #A6886D,
     0 0 20px #40251C,
@@ -424,11 +425,9 @@ html::-webkit-scrollbar {
   text-align: center;
   font-family: 'Cinzel', serif;
   font-size: 3.5vw;
-  /* Reduced from 5vw */
   margin-top: 2rem;
   margin-bottom: 2rem;
   letter-spacing: 0.2em;
-  /* Reduced from 0.3em */
   text-shadow:
     0 0 10px #A6886D,
     0 0 20px #40251C,
@@ -468,7 +467,7 @@ html::-webkit-scrollbar {
   animation: flicker 2.5s infinite alternate;
 }
 
-
+/*flicker the shadow behind the text*/
 @keyframes flicker {
 
   0%,
@@ -490,18 +489,16 @@ html::-webkit-scrollbar {
 .landing-content-inner span,
 .landing-content-sub span {
   display: inline-block;
-  /* Add a min-width or just let normal spacing work */
 }
 
 .landing-content-inner span.space,
 .landing-content-sub span.space {
   width: 0.5em;
-  /* or another value */
   display: inline-block;
 }
 
 
-/* Generate delays for each span using nth-child */
+
 .landing-content-inner span:nth-child(1) {
   animation-delay: 0s, 0s;
 }
@@ -514,7 +511,7 @@ html::-webkit-scrollbar {
   animation-delay: 0s, 0.2s;
 }
 
-/* ...and so on for each letter */
+
 .landing-content-inner span:nth-child(24) {
   animation-delay: 0s, 2.3s;
 }
@@ -527,7 +524,7 @@ html::-webkit-scrollbar {
   animation-delay: 0s, 0.1s;
 }
 
-/* Continue for all characters */
+
 
 @keyframes floatSingle {
 
@@ -606,14 +603,14 @@ html::-webkit-scrollbar {
 
 }
 
-.trailer-text{
+.trailer-text {
   font-size: 30px;
   text-shadow:
     0 0 10px #A6886D,
     0 0 20px #40251C,
     2px 2px 8px #100D04,
     0 0 2px #575945;
-  
+
 }
 
 .pricing-content-sub {
@@ -645,20 +642,15 @@ html::-webkit-scrollbar {
   text-align: center;
   font-family: 'Cinzel', serif;
   font-size: 1.5vw;
-  /* Reduced from 2vw */
   top: 0;
-  /* Reset top position */
   margin: 1rem 8rem;
-  /* Adjusted margins */
   letter-spacing: 0.2em;
-  /* Reduced from 0.3em */
   line-height: 1.6;
   max-width: 1200px;
   animation: flicker 2.5s infinite alternate;
 
 }
 
-/* Add these to your existing CSS */
 .pricing-content-inner span,
 .trailer-content-inner span,
 .aboutus-content-inner span,
@@ -679,27 +671,7 @@ html::-webkit-scrollbar {
   display: inline-block;
 }
 
-/* Make sure this animation is present */
-@keyframes floatSingle {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  40%,
-  50% {
-    transform: translateY(-2px);
-  }
-
-  60% {
-    transform: translateY(0);
-  }
-}
-
-
-
-
+/* adds my menu in the pages*/
 .navbar {
   text-align: center;
   margin-top: 20px;
@@ -727,7 +699,6 @@ html::-webkit-scrollbar {
 .nav-links li a {
   text-decoration: none;
   color: #A6886D;
-  /* brighter for contrast */
   font-size: 2vw;
   padding: 10px 20px;
   transition: color 0.3s ease;
@@ -741,7 +712,6 @@ html::-webkit-scrollbar {
 
 .nav-links li a:hover {
   color: #dba576;
-  /* lighter on hover */
   text-decoration: underline;
   text-shadow: 0 12px 40px 0 #7c7980, 0 4px 16px #71706c;
 }
@@ -764,12 +734,11 @@ html::-webkit-scrollbar {
   height: 100%;
   border: none;
   display: block;
- 
+
 }
 
 .team-section {
   max-width: min(1000px, 85vw);
-  /* Slightly reduced */
   margin: 2rem auto;
   padding: 2rem;
   background: rgba(16, 13, 4, 0.85);
@@ -816,6 +785,7 @@ html::-webkit-scrollbar {
   transition: opacity 0.3s ease;
 }
 
+/* adds a different affect when hovering over the area*/
 .team-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(166, 136, 109, 0.2);
@@ -970,7 +940,6 @@ html::-webkit-scrollbar {
   }
 }
 
-/* Update the navbar position to be more responsive */
 .navbar {
   position: fixed;
   top: 0;
@@ -979,12 +948,11 @@ html::-webkit-scrollbar {
   z-index: 1000;
   padding: 15px 0;
   background: none;
-  /* Make it transparent */
   box-shadow: none;
-  /* Remove shadow */
+
 }
 
-/* Make content containers more responsive */
+
 .landing,
 .trailer,
 .pricing,
@@ -1010,7 +978,7 @@ html::-webkit-scrollbar {
   align-items: center;
   text-align: center;
   font-size: 2vw;
-  /* or a reasonable size */
+
   padding: 40px 0;
 }
 
@@ -1055,17 +1023,18 @@ html::-webkit-scrollbar {
   text-shadow: #40251C 4px 4px 5px;
 }
 
-.info-title{
+.info-title {
   font-size: 251%;
   margin-top: -0.1px;
   text-align: center;
 }
 
-.info-subheading{
+.info-subheading {
   font-size: 20px;
   margin-bottom: 10px;
   color: #dba576;
 }
+
 .trailer-title {
   position: relative;
   z-index: 2;
@@ -1084,7 +1053,6 @@ html::-webkit-scrollbar {
   margin-top: 50px;
 }
 
-/* Add to your existing infopage styles */
 
 .info span,
 .infoinner span {
@@ -1098,7 +1066,6 @@ html::-webkit-scrollbar {
   display: inline-block;
 }
 
-/* Update the loading screen styles for the info page */
 .infopage .LoadingScreen {
   background-color: #00161a;
   z-index: 9999;
@@ -1205,7 +1172,7 @@ ul {
   color: #fbbf24;
 }
 
-/* Noto Serif for CODE RED */
+
 .code-red-title {
   font-family: "Noto Serif", serif;
   font-optical-sizing: auto;
@@ -1222,7 +1189,7 @@ ul {
     0 0 2px #575945;
 }
 
-/* Menu Icon Styles */
+
 button {
   border: none;
   background: none;
@@ -1250,6 +1217,7 @@ button {
   position: relative;
 }
 
+/* spacing for my menu bar lines*/
 .menu__icon span+span {
   margin-top: .375rem;
 }
@@ -1279,6 +1247,7 @@ button {
   background-color: rgb(255, 255, 255);
 }
 
+/* when hovering over the menu bar it turns into a X*/
 @keyframes menu-icon-top {
   0% {
     top: 0;
@@ -1371,7 +1340,7 @@ button {
   }
 }
 
-/* Position the menu icon in the top right corner */
+/* mive the menu icon in the top right corner */
 .menu-corner {
   position: fixed;
   top: 20px;
@@ -1403,7 +1372,6 @@ button {
   position: fixed;
   top: 0;
   left: -220px;
-  /* Hide off-screen to the left */
   width: 220px;
   height: 100vh;
   background: rgba(16, 13, 4, 0.98);
@@ -1478,12 +1446,12 @@ button {
   object-fit: cover;
 }
 
-/* Add to landing.css */
 .slide-show-container {
   position: relative;
 }
 
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -1495,8 +1463,8 @@ button {
   font-size: 2rem;
   transition: 0.3s;
   user-select: none;
-  z-index: 10; /* Make sure arrows are above slides */
-  background: rgba(0,0,0,0.2);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 50%;
 }
 
@@ -1508,7 +1476,8 @@ button {
   right: 10px;
 }
 
-.prev:hover, .next:hover {
-  background: rgba(0,0,0,0.5);
+.prev:hover,
+.next:hover {
+  background: rgba(0, 0, 0, 0.5);
   color: #fff;
 }
